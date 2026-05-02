@@ -1,0 +1,16 @@
+.stars {
+  display: flex;
+  gap: 0.15rem;
+}
+
+.sm span { font-size: 0.85rem; }
+.md span { font-size: 1.1rem; }
+.lg span { font-size: 1.75rem; }
+
+.filled {
+  color: var(--color-star);
+}
+
+.empty {
+  color: var(--color-border);
+}

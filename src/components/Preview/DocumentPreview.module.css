@@ -1,0 +1,28 @@
+.root {
+  padding: 1rem 1.25rem;
+  width: 100%;
+}
+
+/* The doc body fills the panel — no white card, no max-width, no shadow */
+.docBody {
+  font-family: "Computer Modern", "Latin Modern", Georgia, serif;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  width: 100%;
+}
+
+/* Override the global .doc-preview card styling when inside a panel */
+.docBody :global(p) { margin: 0.4em 0; }
+.docBody :global(h1) { font-size: 1.2rem; margin: 0.8em 0 0.3em; }
+.docBody :global(h2) { font-size: 1.05rem; margin: 0.7em 0 0.25em; }
+.docBody :global(h3) { font-size: 0.95rem; margin: 0.6em 0 0.2em; }
+.docBody :global(h4) { font-size: 0.88rem; margin: 0.5em 0 0.2em; }
+
+.empty {
+  color: var(--color-text-muted);
+  font-style: italic;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+}

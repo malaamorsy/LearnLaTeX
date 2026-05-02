@@ -1,0 +1,13 @@
+.wrapper {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.wrapper :global(.cm-editor) {
+  height: 100%;
+}
+
+.wrapper :global(.cm-focused) {
+  outline: none !important;
+}

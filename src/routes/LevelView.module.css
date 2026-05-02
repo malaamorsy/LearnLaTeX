@@ -1,0 +1,341 @@
+/* ── Root ───────────────────────────────────────────────── */
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow: hidden;
+}
+
+/* ── Topbar ─────────────────────────────────────────────── */
+.topbar {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  height: 44px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+  flex-shrink: 0;
+  gap: 0.75rem;
+}
+
+.breadcrumb {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.82rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.breadcrumb:hover { color: var(--color-accent); }
+
+/* Tabs — centred */
+.tabBar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.tabBtn {
+  padding: 0.28rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: none;
+  cursor: pointer;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  transition: all 0.15s;
+}
+.tabBtn:hover { background: var(--color-surface-2); color: var(--color-text); }
+.tabActive {
+  background: var(--color-accent) !important;
+  color: white !important;
+  border-color: var(--color-accent) !important;
+  font-weight: 600;
+}
+
+.topRight {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.levelId {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.bossBadge {
+  background: var(--color-boss);
+  color: white;
+  font-size: 0.6rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* ── Lesson ─────────────────────────────────────────────── */
+.lessonWrap {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Challenge root ─────────────────────────────────────── */
+.challengeRoot {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr;
+  overflow: hidden;
+}
+
+/* ── Sidebar ────────────────────────────────────────────── */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--color-border);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.sidebarTitle {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  padding: 0.6rem 0.9rem 0.4rem;
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.levelList {
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.levelItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.75rem;
+  text-decoration: none;
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  border-bottom: 1px solid var(--color-border);
+  transition: background 0.1s;
+  min-height: 2.1rem;
+}
+.levelItem:hover { background: var(--color-surface-2); color: var(--color-text); }
+.levelItemActive {
+  background: var(--color-accent) !important;
+  color: white !important;
+}
+.levelItemBoss { border-left: 2px solid var(--color-boss); }
+
+.levelItemId {
+  font-weight: 700;
+  font-size: 0.72rem;
+  flex-shrink: 0;
+  min-width: 1.8rem;
+}
+
+.levelItemTitle {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.75rem;
+}
+
+.levelItemStars {
+  font-size: 0.65rem;
+  color: var(--color-star);
+  flex-shrink: 0;
+  letter-spacing: -1px;
+}
+.levelItemActive .levelItemStars { color: rgba(255,255,255,0.8); }
+
+/* ── Editor column ──────────────────────────────────────── */
+.editorCol {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+/* Goal banner */
+.goalBanner {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+  flex-shrink: 0;
+}
+
+.goalLabel {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.goalText {
+  font-size: 0.845rem;
+  color: var(--color-text);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.autoWrapBadge {
+  flex-shrink: 0;
+  font-size: 0.62rem;
+  background: #dbeafe;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: help;
+}
+
+/* Editor */
+.editorArea {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Bottom bar */
+.bottomBar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.8rem;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+  flex-shrink: 0;
+}
+
+.resetBtn {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: none;
+  cursor: pointer;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  transition: background 0.1s;
+  flex-shrink: 0;
+}
+.resetBtn:hover { background: var(--color-surface-2); }
+
+.statusArea {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.submitBtn {
+  padding: 0.38rem 1.3rem;
+  background: var(--color-surface-2);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: not-allowed;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+.submitReady {
+  background: var(--color-accent) !important;
+  color: white !important;
+  border-color: var(--color-accent) !important;
+  cursor: pointer !important;
+}
+.submitReady:hover { background: var(--color-accent-dark) !important; }
+
+/* ── Preview column ─────────────────────────────────────── */
+.previewCol {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--color-surface-2);
+}
+
+.previewHalf {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.previewDivider {
+  height: 1px;
+  background: var(--color-border);
+  flex-shrink: 0;
+}
+
+.previewLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.previewLabelDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: background 0.3s;
+}
+
+.previewContent {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* KaTeX in panel */
+.katexInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  min-height: 4rem;
+}
+
+/* ── Not found ──────────────────────────────────────────── */
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 1rem;
+}
+.notFound a { color: var(--color-accent); }
