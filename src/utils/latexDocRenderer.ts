@@ -160,6 +160,11 @@ function processBody(latex: string): string {
     processEnvironment(name, body, opt ?? "")
   );
 
+  // Display math: \[...\]
+  s = s.replace(/\\\[([\s\S]*?)\\\]/g, (_m, body) =>
+    `<div class="doc-display-math"><span class="doc-math">${escapeHtml(body.trim())}</span></div>`
+  );
+
   // Sections
   s = s.replace(/\\chapter\{([^}]*)\}/g, (_m, t) => `<h1 class="doc-chapter">${processInline(t)}</h1>`);
   s = s.replace(/\\section\*?\{([^}]*)\}/g, (_m, t) => `<h2 class="doc-section">${processInline(t)}</h2>`);
