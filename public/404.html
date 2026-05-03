@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LearnLaTeX</title>
+    <script>
+      // SPA redirect trick for GitHub Pages
+      // Stores the current path in sessionStorage, then redirects to index.html
+      var path = window.location.pathname;
+      var base = '/LearnLaTeX';
+      var route = path.replace(base, '') || '/';
+      sessionStorage.setItem('spa_redirect', route + window.location.search + window.location.hash);
+      window.location.replace(base + '/');
+    </script>
+  </head>
+  <body></body>
+</html>
