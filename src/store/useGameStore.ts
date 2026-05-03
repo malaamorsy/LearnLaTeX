@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { LevelProgress } from "../types";
+import { WORLDS } from "../data/worlds";
 
 interface GameState {
   levelProgress: Record<string, LevelProgress>;
@@ -43,18 +44,28 @@ export const useGameStore = create<GameState>()(
         const existing = get().levelProgress[levelId];
         const bestStars = Math.max(stars, existing?.stars ?? 0);
         const bestTime = Math.min(time, existing?.bestTime ?? Infinity);
-        set((state) => ({
-          levelProgress: {
-            ...state.levelProgress,
-            [levelId]: {
-              completed: true,
-              stars: bestStars,
-              hintsUsed: state.hintsRevealedForLevel[levelId] ?? 0,
-              bestTime,
-              attempts: (existing?.attempts ?? 0) + 1,
-            },
+        const newProgress = {
+          ...get().levelProgress,
+          [levelId]: {
+            completed: true,
+            stars: bestStars,
+            hintsUsed: get().hintsRevealedForLevel[levelId] ?? 0,
+            bestTime,
+            attempts: (existing?.attempts ?? 0) + 1,
           },
-        }));
+        };
+        set({ levelProgress: newProgress });
+
+        // Auto-unlock the next world if all levels in this world are complete
+        const worldId = parseInt(levelId.split(".")[0]);
+        const world = WORLDS.find((w) => w.id === worldId);
+        if (world) {
+          const allCompleted = world.levels.every((l) => newProgress[l.id]?.completed);
+          if (allCompleted) {
+            const nextWorld = WORLDS.find((w) => w.unlockCondition === worldId);
+            if (nextWorld) get().unlockWorld(nextWorld.id);
+          }
+        }
       },
 
       useHint: (levelId) => {
