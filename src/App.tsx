@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { WorldMap } from "./routes/WorldMap";
 import { LevelView } from "./routes/LevelView";
 import { Sandbox } from "./routes/Sandbox";
@@ -7,7 +7,7 @@ import "./styles/global.css";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<WorldMap />} />
         <Route path="/level/:levelId" element={<LevelView />} />
@@ -15,6 +15,6 @@ export default function App() {
         <Route path="/reference" element={<Reference />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
